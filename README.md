@@ -1,2 +1,2 @@
 # jobify
- MERN Demo
+ Track Your Job Search
