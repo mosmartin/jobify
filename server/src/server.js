@@ -1,9 +1,10 @@
 import express from "express";
+import dotenv from "dotenv";
 import { errorHandler } from "./middleware/error-handler.js";
 import { notFound } from "./middleware/not-found.js";
 
 const app = express();
-
+dotenv.config();
 const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => {
