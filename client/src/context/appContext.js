@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
+import { SHOW_ALERT } from "./actions";
+import { reducer } from "./reducer";
 
 export const initialState = {
   isLoading: false,
@@ -10,12 +12,17 @@ export const initialState = {
 const AppContext = createContext(initialState);
 
 export const AppProvider = ({ children }) => {
-  const [state, setState] = useState(initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const showAlert = () => {
+    dispatch({ type: SHOW_ALERT });
+  };
 
   return (
     <AppContext.Provider
       value={{
         ...state,
+        showAlert,
       }}
     >
       {children}
