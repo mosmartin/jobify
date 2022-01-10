@@ -1,4 +1,4 @@
-import { SHOW_ALERT } from "./actions";
+import { DISPLAY_ALERT } from "./actions";
 
 export const reducer = (state = {}, action) => {
   //   switch (action.type) {
@@ -18,7 +18,7 @@ export const reducer = (state = {}, action) => {
   //       return state;
   //   }
 
-  if (action.type === SHOW_ALERT) {
+  if (action.type === DISPLAY_ALERT) {
     return {
       ...state,
       showAlert: true,

@@ -14,20 +14,29 @@ export const Register = () => {
   const [values, setValues] = useState(initialState);
 
   // global context/state
-  const { isLoading, showAlert } = useAppContext();
+  const { isLoading, showAlert, displayAlert } = useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(e.target);
+    console.log(values);
+
+    const {name, email, password, isMember} = values;
+
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert("danger", "Please fill in all fields.");
+      return;
+    }
+
+    console.log(values);
   };
 
   return (

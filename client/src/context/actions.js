@@ -1,1 +1,1 @@
-export const SHOW_ALERT = "SHOW_ALERT";
+export const DISPLAY_ALERT = "SHOW_ALERT";
