@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { Logo, FormRow, Alert } from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
+import { useAppContext } from "../context/appContext";
 
 const initialState = {
   name: "",
   email: "",
   password: "",
   isMember: true,
-  showAlert: false,
 };
 
 export const Register = () => {
   const [values, setValues] = useState(initialState);
+
+  // global context/state
+  const { isLoading, showAlert } = useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -34,7 +37,7 @@ export const Register = () => {
 
         <h3>{values.isMember ? "Login" : "Register"}</h3>
 
-        {values.showAlert && <Alert />}
+        {showAlert && <Alert />}
 
         {!values.isMember && (
           <FormRow
@@ -64,9 +67,7 @@ export const Register = () => {
         </button>
 
         <p>
-          {values.isMember
-            ? "Not a member?"
-            : "Already a member?"}
+          {values.isMember ? "Not a member?" : "Already a member?"}
 
           <button type="submit" onClick={toggleMember} className="member-btn">
             {values.isMember ? "Register" : "Login"}
