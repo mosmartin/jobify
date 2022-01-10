@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
-import { Logo } from '../components';
-import main from '../assets/images/main.svg';
-import Wrapper from '../assets/wrappers/LandingPage';
-
+import { Logo } from "../components";
+import main from "../assets/images/main.svg";
+import Wrapper from "../assets/wrappers/LandingPage";
+import { Link } from "react-router-dom";
 
 export const Landing = () => {
   return (
@@ -26,7 +25,9 @@ export const Landing = () => {
             quibusdam odit. Quidem et modi impedit.
           </p>
 
-          <button className="btn btn-hero">login / register</button>
+          <Link to="/register" className="btn btn-hero">
+            Login/Register
+          </Link>
         </div>
 
         <img src={main} alt="job hunt" className="img main-img" />
