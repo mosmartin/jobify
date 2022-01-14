@@ -1,11 +1,11 @@
-export const register = (req, res) => {
+export const register = async (req, res) => {
   res.status(200).json({ message: 'Register' });
 };
 
-export const login = (req, res) => {
+export const login = async (req, res) => {
   res.status(200).json({ message: 'Login' });
 };
 
-export const updateUser = (req, res) => {
+export const updateUser = async (req, res) => {
   res.status(200).json({ message: 'Update User' });
 };

@@ -4,6 +4,7 @@ import { dbConn } from '../db/connect.js';
 import { errorHandler } from './middleware/error-handler.js';
 import { notFound } from './middleware/not-found.js';
 import authRouter from './routes/auth.routes.js';
+import jobsRouter from './routes/job.routes.js';
 
 const app = express();
 dotenv.config();
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/jobs', jobsRouter);
 
 app.use(notFound);
 app.use(errorHandler);
