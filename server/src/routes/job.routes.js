@@ -13,6 +13,6 @@ router.route('/').get(getAllJobs).post(createJob);
 
 router.route('/:id').put(updateJob).delete(deleteJob);
 
-router.route('/stats', showStats);
+router.route('/stats').get(showStats);
 
 export default router;
